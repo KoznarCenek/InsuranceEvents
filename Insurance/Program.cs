@@ -6,32 +6,50 @@ namespace Insurance
     {
         static void Main(string[] args)
         {
-            Zobrazeni.ZobrazZobrazeni();
-            switch (Zobrazeni.VolbaUzivatele())
+            Pojistenci seznamPojistencu = new Pojistenci();
+            Zobrazeni.ZobrazUvod();
+
+            bool konec = false;
+            while (konec == false)
             {
-                case Zobrazeni.PRIDAT:
+                Zobrazeni.ZobrazMoznosti();
+                switch (Zobrazeni.VolbaUzivatele())
+                {
+                    case Zobrazeni.PRIDAT:
+                        (string jmenoPojisteneho, string prijmeniPojisteneho, int telefoniCisloPojisteneho, int vekPojisteneho) = Zobrazeni.ZobrazZadavani();
+                        seznamPojistencu.PridatPojistenceDoListu(jmenoPojisteneho,prijmeniPojisteneho,telefoniCisloPojisteneho,vekPojisteneho);
+                        Console.Write("Data byla uložena.");
+                        break;
+                    case Zobrazeni.VYPSAT:
+                        Zobrazeni.ZobrazString(seznamPojistencu.ToString());
+                        break;
+                    case Zobrazeni.VYHLEDAT:
+                        Console.WriteLine("Vyhledat");
+                        (string jmenoPojistenehoVyhledej, string prijmeniPojistenehoVyhledej) = Zobrazeni.VyhledejtePojistenehoZadavani();
+                        IEnumerable<Pojistenec> seznam = seznamPojistencu.VyhledejtePojistenehoDotaz(jmenoPojistenehoVyhledej, prijmeniPojistenehoVyhledej);
+                        string s = Pojistenci.IEnumerableToString(seznam);
+                        if (s == null || s == "")
+                        {
+                            s = "Pojištěnec s těmito údaji nenalezen";
+                        }
+                        Zobrazeni.ZobrazString(s);
+                        break;
+                    case Zobrazeni.KONEC:
+                        Console.WriteLine("Děkuji za využití aplikace");
+                        konec = true;
+                        break;
+                    default:
+                        Console.WriteLine("Neplatná volba");
+                        break;
+                }
+                Console.WriteLine("Pokračujte libolnou klávesou...");
+                
+                Console.ReadKey();
 
-                    break;
-                case Zobrazeni.VYPSAT:
-                    break;
-                default: Console.WriteLine("Neplatná volba");
-
-                    break;
             }
 
-            Console.WriteLine("Zadejte jméno pojistěného: ");
-            string jmenoPojisteneho = Console.ReadLine(); 
-            Console.WriteLine("Zadejte přijmení: ");
-            string prijmeniPojisteneho = Console.ReadLine();
-            Console.WriteLine("Zadejte telefoní číslo: ");
-            int telefoniCisloPojisteneho = int.Parse(Console.ReadLine());
-            Console.WriteLine("zadejte věk: ");
-            int vekPojisteneho = int.Parse(Console.ReadLine());
-            List<Pojistenec> seznamPojistencu = new List<Pojistenec>();
-            Pojistenec pojistenec1 = new Pojistenec(jmenoPojisteneho, prijmeniPojisteneho, telefoniCisloPojisteneho, vekPojisteneho);
-            seznamPojistencu.Add(pojistenec1);
-            Console.WriteLine(pojistenec1.ToString());
-            Console.WriteLine("Data byla uložena. Pokračujte libolnou klávesou...");
+            
+
         }
     }
 }
