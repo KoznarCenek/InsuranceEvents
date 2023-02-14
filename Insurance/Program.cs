@@ -13,7 +13,7 @@ namespace Insurance
             while (konec == false)
             {
                 Zobrazeni.ZobrazMoznosti();
-                switch (Zobrazeni.VolbaUzivatele())
+                switch (Zobrazeni.VolbaUzivatele("číslo 1- 4"))
                 {
                     case Zobrazeni.PRIDAT:
                         (string jmenoPojisteneho, string prijmeniPojisteneho, string telefoniCisloPojisteneho, int vekPojisteneho) = Zobrazeni.ZobrazZadavani();

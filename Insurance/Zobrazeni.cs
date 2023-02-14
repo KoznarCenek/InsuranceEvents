@@ -27,21 +27,19 @@ namespace Insurance
             Console.WriteLine("{0} - Vyhledat pojištěného", VYHLEDAT);
             Console.WriteLine("{0} - konec", KONEC);
         }
-        public static int VolbaUzivatele()
+        public static int VolbaUzivatele(string povolenaVolba)
         {
-            int volba;
-
-            string nacteno = Console.ReadLine();
-            bool naparsovat = int.TryParse(nacteno, out volba);
-            if (naparsovat)
+            bool naparsovat = false;
+            int volba = -1;
+            while (naparsovat == false)
             {
-                Console.WriteLine($"Zadal jsi čislo: '{nacteno}' volba: {volba}.");
+                string nacteno = Console.ReadLine();
+                naparsovat = int.TryParse(nacteno, out volba);
+                if (naparsovat == false)
+                {
+                    Console.WriteLine($"Zadal jsi: '{nacteno ?? "<null>"}' Zadej prosím {povolenaVolba}");
+                }
             }
-            else
-            {
-                Console.WriteLine($"Zadal jsi: '{nacteno ?? "<null>"}' Zadej prosím číslo 1 - 4");
-            }
-
             return volba;
         }
         public static (string, string, string, int) ZobrazZadavani()
@@ -52,8 +50,8 @@ namespace Insurance
             string prijmeniPojisteneho = Console.ReadLine();
             Console.WriteLine("Zadejte telefoní číslo: ");
             string telefoniCisloPojisteneho = Console.ReadLine();
-            Console.WriteLine("zadejte věk: ");
-            int vekPojisteneho = int.Parse(Console.ReadLine());
+            Console.WriteLine("Zadejte věk: ");
+            int vekPojisteneho = VolbaUzivatele("číslo 0 - 130");
 
             return (jmenoPojisteneho, prijmeniPojisteneho, telefoniCisloPojisteneho, vekPojisteneho);
         }
