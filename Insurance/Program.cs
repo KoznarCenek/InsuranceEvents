@@ -16,7 +16,7 @@ namespace Insurance
                 switch (Zobrazeni.VolbaUzivatele())
                 {
                     case Zobrazeni.PRIDAT:
-                        (string jmenoPojisteneho, string prijmeniPojisteneho, int telefoniCisloPojisteneho, int vekPojisteneho) = Zobrazeni.ZobrazZadavani();
+                        (string jmenoPojisteneho, string prijmeniPojisteneho, string telefoniCisloPojisteneho, int vekPojisteneho) = Zobrazeni.ZobrazZadavani();
                         seznamPojistencu.PridatPojistenceDoListu(jmenoPojisteneho,prijmeniPojisteneho,telefoniCisloPojisteneho,vekPojisteneho);
                         Console.Write("Data byla uložena.");
                         break;
@@ -30,7 +30,7 @@ namespace Insurance
                         string s = Pojistenci.IEnumerableToString(seznam);
                         if (s == null || s == "")
                         {
-                            s = "Pojištěnec s těmito údaji nenalezen";
+                            s = "Pojištěnec s těmito údaji nenalezen.";
                         }
                         Zobrazeni.ZobrazString(s);
                         break;

@@ -44,14 +44,14 @@ namespace Insurance
 
             return volba;
         }
-        public static (string, string, int, int) ZobrazZadavani()
+        public static (string, string, string, int) ZobrazZadavani()
         {
             Console.WriteLine("Zadejte jméno pojistěného: ");
             string jmenoPojisteneho = Console.ReadLine();
             Console.WriteLine("Zadejte přijmení: ");
             string prijmeniPojisteneho = Console.ReadLine();
             Console.WriteLine("Zadejte telefoní číslo: ");
-            int telefoniCisloPojisteneho = int.Parse(Console.ReadLine());
+            string telefoniCisloPojisteneho = Console.ReadLine();
             Console.WriteLine("zadejte věk: ");
             int vekPojisteneho = int.Parse(Console.ReadLine());
 

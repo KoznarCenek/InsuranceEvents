@@ -18,7 +18,7 @@ namespace Insurance
         public Pojistenec jmenoPojisteneho { get; private set; }
         public Pojistenec prijmeniPojisteneho { get; private set; }
 
-        public void PridatPojistenceDoListu(string jmenoPojisteneho, string prijmeniPojisteneho, int telefoniCisloPojisteneho, int vekPojisteneho)
+        public void PridatPojistenceDoListu(string jmenoPojisteneho, string prijmeniPojisteneho, string telefoniCisloPojisteneho, int vekPojisteneho)
         {
             Pojistenec pojistenec1 = new Pojistenec(jmenoPojisteneho, prijmeniPojisteneho, telefoniCisloPojisteneho, vekPojisteneho);
             seznamPojistencu.Add(pojistenec1);
