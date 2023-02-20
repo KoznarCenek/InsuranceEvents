@@ -17,8 +17,15 @@ namespace Insurance
                 {
                     case Zobrazeni.PRIDAT:
                         (string jmenoPojisteneho, string prijmeniPojisteneho, string telefoniCisloPojisteneho, int vekPojisteneho) = Zobrazeni.ZobrazZadavani();
-                        seznamPojistencu.PridatPojistenceDoListu(jmenoPojisteneho,prijmeniPojisteneho,telefoniCisloPojisteneho,vekPojisteneho);
-                        Console.Write("Data byla uložena.");
+                        if (Pojistenec.validTelephoneNo(telefoniCisloPojisteneho))
+                        { 
+                            seznamPojistencu.PridatPojistenceDoListu(jmenoPojisteneho, prijmeniPojisteneho, telefoniCisloPojisteneho, vekPojisteneho);
+                            Console.Write("Data byla uložena.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Zadal jste nevalidní číslo: {0} Data nebyla uložena", telefoniCisloPojisteneho);
+                        }
                         break;
                     case Zobrazeni.VYPSAT:
                         Zobrazeni.ZobrazString(seznamPojistencu.ToString());

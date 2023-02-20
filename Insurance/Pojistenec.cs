@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Insurance
@@ -29,9 +30,12 @@ namespace Insurance
 
         public override string ToString() 
         {
-            return  $"{jmeno} {prijmeni} {telefoniCislo} {vek}";
+            return  $" Jméno: {jmeno} Příjmení: {prijmeni} Telefoní číslo: {telefoniCislo} Věk: {vek}";
         }
-        
+        public static bool validTelephoneNo(string telNo)
+        {
+            return Regex.Match(telNo, @"^(\+[0-9]{12})$").Success;
+        }
 
     }
 }

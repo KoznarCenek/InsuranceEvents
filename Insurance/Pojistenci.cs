@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -35,7 +34,7 @@ namespace Insurance
 
         public IEnumerable<Pojistenec> VyhledejtePojistenehoDotaz(string jmenoPojisteneho, string prijmeniPojisteneho)
         {
-            var dotaz = seznamPojistencu.Where(x => (x.Jmeno == jmenoPojisteneho) && (x.Prijmeni == prijmeniPojisteneho));
+            var dotaz = seznamPojistencu.Where(x => (x.Jmeno.Contains(jmenoPojisteneho)) && (x.Prijmeni.Contains(prijmeniPojisteneho)));
 
             return dotaz;
         }
