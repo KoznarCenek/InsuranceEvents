@@ -59,6 +59,10 @@ namespace Insurance
         {
             Console.WriteLine(s);
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static (string, string) VyhledejtePojistenehoZadavani()
         {
             Console.WriteLine("Zadejte jméno pojistěného: ");
