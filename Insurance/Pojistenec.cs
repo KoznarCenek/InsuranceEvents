@@ -32,6 +32,11 @@ namespace Insurance
         {
             return  $" Jméno: {jmeno} Příjmení: {prijmeni} Telefoní číslo: {telefoniCislo} Věk: {vek}";
         }
+        /// <summary>
+        /// ověří zda telefoní číslo obsahuje jen + a dvanáct číslic
+        /// </summary>
+        /// <param name="telNo">telefoní číslo ve formátu example +420123456789</param>
+        /// <returns>vrací false pokud číslo neodpovídá formátu</returns>
         public static bool validTelephoneNo(string telNo)
         {
             return Regex.Match(telNo, @"^(\+[0-9]{12})$").Success;

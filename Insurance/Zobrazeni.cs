@@ -19,6 +19,9 @@ namespace Insurance
             Console.WriteLine("Evidence pojištěných");
             Console.WriteLine("----------------------------------");
         }
+        /// <summary>
+        /// Zobrazí základní možnosti aplikace
+        /// </summary>
         public static void ZobrazMoznosti()
         {
             Console.WriteLine("Vyberte si akci: ");
@@ -27,6 +30,12 @@ namespace Insurance
             Console.WriteLine("{0} - Vyhledat pojištěného", VYHLEDAT);
             Console.WriteLine("{0} - konec", KONEC);
         }
+
+        /// <summary>
+        /// funkce se opakuje do té doby než je zadána platná volba
+        /// </summary>
+        /// <param name="povolenaVolba">volba zadaná uživatelem (1-4)</param>
+        /// <returns>vrací jednu ze čtyř základních možností</returns>
         public static int VolbaUzivatele(string povolenaVolba)
         {
             bool naparsovat = false;
@@ -59,10 +68,6 @@ namespace Insurance
         {
             Console.WriteLine(s);
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         public static (string, string) VyhledejtePojistenehoZadavani()
         {
             Console.WriteLine("Zadejte jméno pojistěného: ");

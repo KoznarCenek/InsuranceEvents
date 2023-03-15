@@ -16,7 +16,9 @@ namespace Insurance
 
         public Pojistenec jmenoPojisteneho { get; private set; }
         public Pojistenec prijmeniPojisteneho { get; private set; }
-
+        /// <summary>
+        /// Přidává pojištěnce do seznamu pojištěnců
+        /// </summary>
         public void PridatPojistenceDoListu(string jmenoPojisteneho, string prijmeniPojisteneho, string telefoniCisloPojisteneho, int vekPojisteneho)
         {
             Pojistenec pojistenec1 = new Pojistenec(jmenoPojisteneho, prijmeniPojisteneho, telefoniCisloPojisteneho, vekPojisteneho);
@@ -31,7 +33,10 @@ namespace Insurance
             }
             return s;
         }
-
+        /// <summary>
+        /// Funkce na vyhledávání pojištěnce ze seznamu pojištěnců
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<Pojistenec> VyhledejtePojistenehoDotaz(string jmenoPojisteneho, string prijmeniPojisteneho)
         {
             var dotaz = seznamPojistencu.Where(x => (x.Jmeno.Contains(jmenoPojisteneho)) && (x.Prijmeni.Contains(prijmeniPojisteneho)));
