@@ -34,8 +34,8 @@ namespace Insurance
         /// <summary>
         /// funkce se opakuje do té doby než je zadána platná volba
         /// </summary>
-        /// <param name="povolenaVolba">volba zadaná uživatelem (1-4)</param>
-        /// <returns>vrací jednu ze čtyř základních možností</returns>
+        /// <param name="povolenaVolba">volba zadaná uživatelem</param>
+        /// <returns>vrací číslo</returns>
         public static int VolbaUzivatele(string povolenaVolba)
         {
             bool naparsovat = false;

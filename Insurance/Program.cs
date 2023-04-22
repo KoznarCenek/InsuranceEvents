@@ -6,6 +6,9 @@ namespace Insurance
     {
         static void Main(string[] args)
         {
+            SQLDataCommunication databaze= new SQLDataCommunication();
+            SQLDataCommunication.PripojSeNaDatabazi();
+
             Pojistenci seznamPojistencu = new Pojistenci();
             Zobrazeni.ZobrazUvod();
 
@@ -18,7 +21,7 @@ namespace Insurance
                     case Zobrazeni.PRIDAT:
                         (string jmenoPojisteneho, string prijmeniPojisteneho, string telefoniCisloPojisteneho, int vekPojisteneho) = Zobrazeni.ZobrazZadavani();
                         if (Pojistenec.validTelephoneNo(telefoniCisloPojisteneho))
-                        { 
+                        {
                             seznamPojistencu.PridatPojistenceDoListu(jmenoPojisteneho, prijmeniPojisteneho, telefoniCisloPojisteneho, vekPojisteneho);
                             Console.Write("Data byla uložena.");
                         }
@@ -50,12 +53,12 @@ namespace Insurance
                         break;
                 }
                 Console.WriteLine("Pokračujte libolnou klávesou...");
-                
+
                 Console.ReadKey();
 
             }
 
-            
+
 
         }
     }

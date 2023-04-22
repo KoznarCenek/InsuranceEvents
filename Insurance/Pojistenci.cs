@@ -36,13 +36,18 @@ namespace Insurance
         /// <summary>
         /// Funkce na vyhledávání pojištěnce ze seznamu pojištěnců
         /// </summary>
-        /// <returns></returns>
+        /// <returns>jméno a příjmení pojištěnce vyhledaného v seznamu pojištěnců</returns>
         public IEnumerable<Pojistenec> VyhledejtePojistenehoDotaz(string jmenoPojisteneho, string prijmeniPojisteneho)
         {
             var dotaz = seznamPojistencu.Where(x => (x.Jmeno.Contains(jmenoPojisteneho)) && (x.Prijmeni.Contains(prijmeniPojisteneho)));
 
             return dotaz;
         }
+        /// <summary>
+        /// Funkce vyhledá pojištence v seznamu pojištenců
+        /// </summary>
+        /// <param name="seznam">seznam pojištěnců</param>
+        /// <returns>vrátí vyhledané pojištěnce v seznamu</returns>
         public static string IEnumerableToString(IEnumerable<Pojistenec> seznam)
         {
             string s = "";
