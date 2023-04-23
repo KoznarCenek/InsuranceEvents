@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<connection>
+	<DataSource>(LocalDB)\MSSQLLocalDB</DataSource>
+	<AttachDbFilename>C:\Users\Cenek\Dropbox\Csharp\Insurance\Insurance\Pojistenci.mdf</AttachDbFilename>
+	<IntegratedSecurity>True</IntegratedSecurity>
+</connection>
