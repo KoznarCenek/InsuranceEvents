@@ -1,12 +1,26 @@
-Konzová aplikace pro správu pojištìncù
+ï»¿KonzovÃ¡ aplikace pro sprÃ¡vu pojiÅ¡tÄ›ncÅ¯
 ========================================
-Konzolová aplikace, ve které je moné:
-* zadávat pojištìnce do seznamu pojištìncù
-* vypisovat všechny pojištìnce
-* vyhledávat podle jména a pøíjmení.
+KonzolovÃ¡ aplikace, ve kterÃ© je moÅ¾nÃ©:
+* zadÃ¡vat pojiÅ¡tÄ›nce do seznamu pojiÅ¡tÄ›ncÅ¯
+* vypisovat vÅ¡echny pojiÅ¡tÄ›nce
+* vyhledÃ¡vat podle jmÃ©na a pÅ™Ã­jmenÃ­.
 
-Pojištìncùm je moné zadat
-* jméno
-* pøíjmení
-* vìk
-* telefoní èíslo.
+PojiÅ¡tÄ›ncÅ¯m je moÅ¾nÃ© zadat
+* jmÃ©no
+* pÅ™Ã­jmenÃ­
+* vÄ›k
+* telefonÃ­ ÄÃ­slo.
+
+## Migrations
+
+Create migration
+
+```
+dotnet ef migrations add "MigrationName" -c InsuranceDbContext -p ../Insurance.Persistence -o ../Insurance.Persistence/Migrations
+```
+
+Apply migration
+
+```
+dotnet ef database update -c InsuranceDbContext -p ../Insurance.Persistence
+```
