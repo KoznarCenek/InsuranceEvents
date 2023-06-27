@@ -1,4 +1,8 @@
-using Insurance.Domain.Models;
+using AutoMapper;
+using Insurance.Api.Dto.Input;
+using Insurance.Api.Dto.Output;
+using Insurance.Application.Features.InsuredPerson;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Insurance.Api.Controllers;
@@ -12,16 +16,32 @@ public class InsuredPersonController : ControllerBase
     };
 
     private readonly ILogger<InsuredPersonController> _logger;
+    private readonly ISender _sender;
+    private readonly IMapper _mapper;
 
-    public InsuredPersonController(ILogger<InsuredPersonController> logger)
+    public InsuredPersonController(IMapper mapper,ILogger<InsuredPersonController> logger, ISender sender)
     {
         _logger = logger;
+        _sender = sender;
+        _mapper = mapper;
     }
 
     [HttpGet]
     [ProducesResponseType(typeof(InsuredPersonDto), StatusCodes.Status200OK)]
-    public async Task<IActionResult> Get()
+    public async Task<IActionResult> GetById(Guid id)
     {
-        return Ok(new InsuredPersonDto());
+        var command = new GetInsuredPersonByIdCommand()
+        {
+            Id = id
+        };
+        var result = await _sender.Send(command);
+        return Ok(_mapper.Map<InsuredPersonDto>(result));
+    }
+
+    [HttpGet(nameof(GetByFilter), Name = nameof(GetByFilter))]
+    [ProducesResponseType(typeof(InsuredPersonDto), StatusCodes.Status200OK)]
+    public async Task<IActionResult> GetByFilter(InsuredPersonFilter filter)
+    {
+        throw new NotImplementedException();
     }
 }

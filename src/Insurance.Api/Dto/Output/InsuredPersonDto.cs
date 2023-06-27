@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Insurance.Domain.Models;
+namespace Insurance.Api.Dto.Output;
 
 public class InsuredPersonDto
 {
@@ -14,9 +14,6 @@ public class InsuredPersonDto
     /// </summary>
     /// <param name="telNo">telefoní číslo ve formátu example +420123456789</param>
     /// <returns>vrací false pokud číslo neodpovídá formátu</returns>
-    public static bool ValidPhoneNo(string telNo)
-    {
-        return Regex.Match(telNo, @"^(\+[0-9]{12})$").Success;
-    }
+    public bool ValidPhoneNo { get; set; }
 
 }

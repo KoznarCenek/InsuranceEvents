@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 using System.Reflection;
 
 namespace Insurance.Persistence;
-internal class InsuranceDbContext : DbContext
+public class InsuranceDbContext : DbContext
 {
     public InsuranceDbContext(DbContextOptions options) : base(options)
     {

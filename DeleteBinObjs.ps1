@@ -1,0 +1,1 @@
+﻿Get-ChildItem -Include bin,obj,packages,node_modules -Recurse | rm -Recurse -force
